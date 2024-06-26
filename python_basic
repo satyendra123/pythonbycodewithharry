@@ -15,3 +15,22 @@ a="56"
 b="3"
 print(int(a)+int(b))  # output is 59
 
+#Ex-3 mai ab chahta hu ki user jo hai number dale a aur b ki values aur mai un dono values ko sum karu
+
+a) a = input()
+   print(a)
+Note- is code ko jab mai run krunga to mujhe screen par kuch bhi show nahi hoga wo wait krega ki mai kuch type karu aur mai jo kuch bhi type karunga wo mujhe wahi chiz ko print karke de dega
+
+b) a= input("Enter your name: ")
+   print(a)
+
+c) 
+a= int(input("enter the number of a: "))
+b= int(input("enter the number of b: "))
+print("sub of",a,"+",b,"is:",a+b)
+
+#output: enter the number of a: 12
+enter the number of b: 23
+sub of 12 + 23 is: 35
+
+#EX-4 
