@@ -5,4 +5,13 @@ b=3
 print("sum of",a, "+", b,"is:",a+b); # mai chahta hu ki mera output kuch is tarah se dikhe sum of 56 + 3 is 59 so isko dhayan me rakhkar hum code likhenge
 print(f"sum of {a} + {b} is: {a+b}"); #mai chahta hu ki mera output kuch is tarah se dikhe sum of 56 + 3 is 59 so isko dhayan me rakhkar hum code likhenge
 
-EX-2
+EX-2 typecasting
+a="56"
+b="3"
+print(a+b)   
+#output 563. kyuki maine string me rkha hai aur + jo hai dono strings ko concatenate kar dega. so iska solution kya hai ki mujhe typecasting ke dwara string ko pahle integer me convert karna padhega wo hum niche wale example me dekhte hai
+
+a="56"
+b="3"
+print(int(a)+int(b))  # output is 59
+
