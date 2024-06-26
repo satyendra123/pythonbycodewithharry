@@ -17,6 +17,7 @@ print(int(a)+int(b))  # output is 59
 
 #Ex-3 mai ab chahta hu ki user jo hai number dale a aur b ki values aur mai un dono values ko sum karu
 
+#Note- input() function ka use karke hum user se input le sakte hai. lekin iska ek rule hota hai iske through jo bhi values a me aayegi wo ek string ke taur par aayegi chahe mai number hi kyu na du to bhi wo ek string ke taur par hi aayegi to mujhe use karna padhega typecasting taki wo us string ko int me convert karke aage pass kare
 a) a = input()
    print(a)
 Note- is code ko jab mai run krunga to mujhe screen par kuch bhi show nahi hoga wo wait krega ki mai kuch type karu aur mai jo kuch bhi type karunga wo mujhe wahi chiz ko print karke de dega
@@ -24,7 +25,13 @@ Note- is code ko jab mai run krunga to mujhe screen par kuch bhi show nahi hoga 
 b) a= input("Enter your name: ")
    print(a)
 
-c) 
+c) a=input("enter the value of a: ")
+b=input("enter the value of b: ")
+print(a+b)
+# output enter the value of a: 10 enter the value of b: 12                 output: 1012
+#note ye mujhe dono number ko concatenate karke de rha hai aisa isliye ho rha hai kyuki jab bhi mai input() function se leta hu user se kuch bhi to ye string me hi mujhe data deta hai. isliye a me string aa gya aur b me bhi string aa gya aur + karne se dono string concatenate ho gaye
+
+d) 
 a= int(input("enter the number of a: "))
 b= int(input("enter the number of b: "))
 print("sub of",a,"+",b,"is:",a+b)
