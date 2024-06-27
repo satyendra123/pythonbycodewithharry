@@ -1,4 +1,45 @@
+request.get() = ye method hota hai data receive karne ke liye kisi url se
+request.post() = is method ka use hum data ko send karne ke liye karte hai
+
+#EXAMPLE-1 how to receive the data from the url
+import requests
+url = "https://financialmodelingprep.com/api/company/price/AAPL"
+r = requests.get(url)
+print(r.text)
+print(r.status_code)
+
+
+
+
+#EXAMPLE-2 POST REQUEST how can i send the data using request.post(). so hum ek dictionary ya list banayenge aur ek variable me ise dal denge aur request.post(url, data) likhkar post kar denge
+# url = "www.something.com"
+# data = {
+#     "p1":4,
+#     "p2":8
+# }
+# r2 = requests.post(url=url, data=data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # hum dekhte hai isme ki flaks ka use karke hum http post se data kaise send karte hai aur receive karte hai
+
+
+
+
+
+
+
 
 from flask import Flask, request, jsonify    # actually request jo hai wo http get and post method send karne ka aur waha se jo response aaye usko capture karne ka kaam karti hai, aur Flask ka use hum server banane ke liye karte hai taki hum ise as a server run kar sake ip aur port par, aur jsonify ka use hum json data ke liye karte hai
 app = Flask(__name__)                        # humne ek app variable banaya Flask class ki madad se. jo ki api ka path banane ka kaam karegi
@@ -7,8 +48,9 @@ app = Flask(__name__)                        # humne ek app variable banaya Flas
 def receive_message():                       # humne ek function banaya hai receive_message ka
     data = request.get_json()                # isme hum request.get_json method ka use ka rhe hai means data jo hai udhar se aa rha hai wo json format me aana chahiye aur data variable me hum rakh lenge jo bhi data aa rha hai. Get the JSON data from the request body
     message = data.get('message')            # aur man lo ki bhut sara data me se mujhe 'message':"How are you" means message key ho gya aur usme how are you value ho gya. so hum message key wale data ko le lenge aur use ek variable me store kar liya
-    print(f"Received message: {message}")
-    return jsonify({"status": "success", "message": "Message received"}), 200
+    print(f"Received message: {message}")    # 
+    return jsonify({"status": "success", "message": "Message received"}), 200 
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000)
+
