@@ -11,22 +11,17 @@ print(r.status_code)
 
 #EXAMPLE-2 POST REQUEST how can i send the data using request.post(). so hum ek dictionary ya list banayenge aur ek variable me ise dal denge aur request.post(url, data) likhkar post kar denge
 import requests
-
 url = "http://www.something.com"  # Ensure to include http:// or https:// in the URL
 data = {
     "p1": 4,
     "p2": 8
 }
-
-# Making the POST request
-r = requests.post(url, data=data)
-
-# Checking the response
-print("Response Text:", r.text)
+r = requests.post(url, data=data)    # Making the POST request
+print("Response Text:", r.text)      # printing the response
 print("Status Code:", r.status_code)
 
 
-# hum dekhte hai isme ki flaks ka use karke hum http post se data kaise send karte hai aur receive karte hai
+# EXAMPLE-3 hum dekhte hai isme ki flaks ka use karke hum http post se data kaise send karte hai aur receive karte hai
 
 from flask import Flask, request, jsonify    # actually request jo hai wo http get and post method send karne ka aur waha se jo response aaye usko capture karne ka kaam karti hai, aur Flask ka use hum server banane ke liye karte hai taki hum ise as a server run kar sake ip aur port par, aur jsonify ka use hum json data ke liye karte hai
 app = Flask(__name__)                        # humne ek app variable banaya Flask class ki madad se. jo ki api ka path banane ka kaam karegi
@@ -41,3 +36,231 @@ def receive_message():                       # humne ek function banaya hai rece
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000)
 
+#EXAMPLE-4 man lo ki mai chahta hu ki mera arduino mujhe http post request se data send kar rha hai aur use mai flask me receive kar rha hu receive_sensor_data() is method se
+# aur mai is data ko store kar rha hu aur phir is data ko mai react js me send kar rha hu. 
+
+from flask import Flask, request, jsonify               # flask, request, jsonify ko import krenge
+from flask_cors import CORS                             # flask cors se CORS ko import krenge
+
+app = Flask(__name__)                                   # app variable banayenge jisse ki hum post aur get method aur route define kar sake. Flask class se
+CORS(app)
+
+sensor_data = None                                  # sensor ko starting me None rakha hai
+
+@app.route('/api/sensordata', methods=['POST'])       # api.route se hum path define karenge aur method ko define krenge
+def receive_sensor_data():                            # humne ek function banaya hai
+    global sensor_data                                # hum upar wale variable ko read karna chahte hai au changes karna chahte hai usme so hum global keyword ka use krenge
+    try:
+        sensor_data = request.json  # Store the JSON data sent by the ESP32  
+        print(sensor_data)  # Print the received data
+        return jsonify({"status": "success"}), 200  # Respond with a success message
+    except Exception as e:
+        print(f'Error receiving data: {e}')
+        return jsonify({"status": "error"}), 400
+
+@app.route('/api/sendrfiddata', methods=['GET'])
+def get_sensor_data():
+    global sensor_data
+    if sensor_data:
+        return jsonify(sensor_data), 200
+    else:
+        return jsonify({"error": "No data available"}), 404
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=3000)
+
+
+#EXAMPLE-5 now i am sending the input data from the react js and my flask server will receive the data and send it to esp32. i am using it in my fingerprint sensor
+
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
+
+stored_message = None  # Variable to store the message
+
+@app.route('/api/senddata', methods=['POST'])
+def receive_data():
+    global stored_message
+    try:
+        data = request.json
+        stored_message = data.get('message')
+        print(f'Received message: {stored_message}')
+        return jsonify({"status": "success"}), 200
+    except Exception as e:
+        print(f'Error receiving data: {e}')
+        return jsonify({"status": "error"}), 400
+
+@app.route('/api/getdata', methods=['POST'])
+def send_data():
+    global stored_message
+    if stored_message:
+        message = f'add-id{stored_message}'
+        print(f'Sending message: {message}')
+        stored_message = None  # Clear the message after sending
+        return jsonify({"message": message}), 200
+    else:
+        return jsonify({"message": None}), 200
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=3000)
+
+#Step-2 react js code
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const App = () => {
+  const [message, setMessage] = useState('');
+
+  const handleInputChange = (e) => {
+    setMessage(e.target.value);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/api/senddata', { message });
+      console.log('Message sent:', response.data);
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={message}
+        onChange={handleInputChange}
+        placeholder="Enter your message"
+      />
+      <button onClick={handleSubmit}>Send Message</button>
+    </div>
+  );
+};
+
+export default App;
+
+#step-3 #include <WiFi.h>
+#include <HTTPClient.h>
+#include <ArduinoJson.h>
+
+const char* ssid = "your_SSID";
+const char* password = "your_PASSWORD";
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Connecting to WiFi...");
+  }
+
+  Serial.println("Connected to WiFi");
+}
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin("http://your_flask_server_ip:3000/api/getdata");
+    http.addHeader("Content-Type", "application/json");
+
+    int httpResponseCode = http.POST("{}");
+
+    if (httpResponseCode > 0) {
+      String response = http.getString();
+      Serial.println("Response: " + response);
+
+      // Parse the JSON response
+      DynamicJsonDocument doc(1024);
+      DeserializationError error = deserializeJson(doc, response);
+
+      if (!error) {
+        const char* message = doc["message"];
+        if (message && strncmp(message, "add-id", 6) == 0) {
+          Serial.println("Received valid message: " + String(message));
+
+          // Extract and process the ID part of the message
+          String id = String(message).substring(6);
+          Serial.println("Processing ID: " + id);
+
+          // Add your logic to process the ID here
+        }
+      } else {
+        Serial.println("Failed to parse JSON");
+      }
+    } else {
+      Serial.println("Error in sending request");
+    }
+
+    http.end();
+  } else {
+    Serial.println("Disconnected from WiFi");
+  }
+
+  delay(5000);  // Check every 5 seconds
+}
+
+# EXAMPLE- micropython code 
+import network
+import urequests
+import time
+import json
+
+# WiFi configuration
+SSID = 'your_SSID'
+PASSWORD = 'your_PASSWORD'
+
+# Flask server URL
+FLASK_URL = 'http://your_flask_server_ip:3000/api/getdata'
+
+# Connect to WiFi
+def connect_to_wifi(ssid, password):
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    wlan.connect(ssid, password)
+    
+    while not wlan.isconnected():
+        print('Connecting to WiFi...')
+        time.sleep(1)
+    
+    print('Connected to WiFi')
+    print(wlan.ifconfig())
+
+def get_data_from_server():
+    try:
+        headers = {'Content-Type': 'application/json'}
+        response = urequests.post(FLASK_URL, json={}, headers=headers)
+        
+        if response.status_code == 200:
+            data = response.json()
+            message = data.get('message')
+            response.close()
+            return message
+        else:
+            print('Error in HTTP request')
+            response.close()
+            return None
+    except Exception as e:
+        print(f'Error: {e}')
+        return None
+
+def main():
+    connect_to_wifi(SSID, PASSWORD)
+    
+    while True:
+        message = get_data_from_server()
+        
+        if message:
+            print('Received message:', message)
+            
+            if message.startswith('add-id'):
+                id_data = message[6:]  # Extract the ID part
+                print('Processing ID:', id_data)
+                # Add your logic to process the ID here
+        
+        time.sleep(5)  # Check every 5 seconds
+
+if __name__ == '__main__':
+    main()
