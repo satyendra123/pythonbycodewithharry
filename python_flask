@@ -9,37 +9,24 @@ print(r.text)
 print(r.status_code)
 
 
-
-
 #EXAMPLE-2 POST REQUEST how can i send the data using request.post(). so hum ek dictionary ya list banayenge aur ek variable me ise dal denge aur request.post(url, data) likhkar post kar denge
-# url = "www.something.com"
-# data = {
-#     "p1":4,
-#     "p2":8
-# }
-# r2 = requests.post(url=url, data=data)
+import requests
 
+url = "http://www.something.com"  # Ensure to include http:// or https:// in the URL
+data = {
+    "p1": 4,
+    "p2": 8
+}
 
+# Making the POST request
+r = requests.post(url, data=data)
 
-
-
-
-
-
-
-
-
-
+# Checking the response
+print("Response Text:", r.text)
+print("Status Code:", r.status_code)
 
 
 # hum dekhte hai isme ki flaks ka use karke hum http post se data kaise send karte hai aur receive karte hai
-
-
-
-
-
-
-
 
 from flask import Flask, request, jsonify    # actually request jo hai wo http get and post method send karne ka aur waha se jo response aaye usko capture karne ka kaam karti hai, aur Flask ka use hum server banane ke liye karte hai taki hum ise as a server run kar sake ip aur port par, aur jsonify ka use hum json data ke liye karte hai
 app = Flask(__name__)                        # humne ek app variable banaya Flask class ki madad se. jo ki api ka path banane ka kaam karegi
