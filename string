@@ -1,0 +1,51 @@
+#EXAMPLE-1 print the each character of the string 
+
+'''
+a = "satyendra"
+print(a[0], end='\n')            # output: s
+print(a[1], end='\n')            # output: a
+print(a[2], end='\n')            # output: t
+print(a[3], end='\n')            # output: y
+print(a[4], end='\n')            # output: e
+print(a[5], end='\n')            # output: n
+print(a[6], end='\n')            # output: d
+print(a[7], end='\n')            # output: r
+print(a[8], end='\n')            # output: a
+'''
+
+a = "satyendra"
+print(a[0], end='')
+print(a[1], end='')
+print(a[2], end='')
+print(a[3], end='')
+print(a[4], end='')
+print(a[5], end='')
+print(a[6], end='')
+print(a[7], end='')
+print(a[8], end='')
+
+#EX-0
+a = "satyendra"
+for i in range(len(a)):
+    print(a[i], end='')
+
+#EX-1
+a="satyendra"
+for char in a:
+    print(char)
+    
+#EX-2
+a="satyendra"
+count=0
+for char in a:
+    count+=1
+print(f'the length of the string is:{count}')
+
+#EX-3
+a = "satyendra"
+count = 0
+vowels = ['a', 'e', 'i', 'o', 'u']
+
+for char in a:
+    if char in vowels:
+        count += 1
