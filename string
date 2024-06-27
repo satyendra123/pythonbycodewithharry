@@ -29,19 +29,19 @@ a = "satyendra"
 for i in range(len(a)):
     print(a[i], end='')
 
-#EX-1
+#EX-1 print the each character of the string
 a="satyendra"
 for char in a:
     print(char)
     
-#EX-2
+#EX-2 how to find the length of the string
 a="satyendra"
 count=0
 for char in a:
     count+=1
 print(f'the length of the string is:{count}')
 
-#EX-3
+#EX-3 calculate the number of vowels in a string
 a = "satyendra"
 count = 0
 vowels = ['a', 'e', 'i', 'o', 'u']
@@ -49,3 +49,4 @@ vowels = ['a', 'e', 'i', 'o', 'u']
 for char in a:
     if char in vowels:
         count += 1
+
