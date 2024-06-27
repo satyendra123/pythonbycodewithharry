@@ -50,3 +50,7 @@ for char in a:
     if char in vowels:
         count += 1
 
+#EX-4 calculate the words in a sentence
+a="How are you"
+words= a.split()
+print(words)
