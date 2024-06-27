@@ -40,4 +40,12 @@ print("sub of",a,"+",b,"is:",a+b)
 enter the number of b: 23
 sub of 12 + 23 is: 35
 
-#EX-4 
+#EX-4 python global keyword. agar mujhe kisi function ke andar global variable banata hu aur global keyword se kisi function ke andar access karta hu aur iski value ko change krta hu to us variable ki value change ho jayegi pure code ke liye
+a=5
+def modify_data():
+    global a
+    a=15
+    
+print(a)
+modify_data()
+print(a)
