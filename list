@@ -1,0 +1,43 @@
+#EX-0  write the numbers in the list
+a=[2,5,7,9]
+print(a)
+
+#EX-1 print the data present in the list
+a=[2,3,4,6,8,9]
+for num in a:
+    print(num)
+
+
+#EX-2 write the code whether the number is present in the list or not
+num = int(input("enter the number to check: "))
+a=[4,5,6,7,8]
+if num in a:
+    print(f"the {num} is present in the list")
+else:
+    print(f"the {num} is not present in the list")
+
+#EX-3 mere pass ek empty list hai mai isme data append kar rha hu is list me
+a = []
+a.append(5)
+a.append(6)
+a.append(7)
+a.append(8)
+a.append(9)
+
+#EX-4 iska matlab ki man lo ki maine ek empty list banaya hai aur mai chahta hu ki isme mai number append karu for loop ka use karke to is tarah se karunga. [5,6,7,8,9]
+a = []
+for i in range(5, 10):
+    a.append(i)
+print(a)
+
+#EX-5 mere pass ek list me kuch numbers hai mai chahta hu ki jo even numbers hai unka ek alag list bane aur jo odd number hai uska ek alag list bane
+a=[1,2,3,4,5,6,7,8,9,10]
+b=[]
+c=[]
+for num in a:
+    if num % 2 ==0:
+        b.append(num)
+    else:
+        c.append(num)
+print(f"even number present in the list is: {b}")
+print(f"odd number present in the list is: {c}")
