@@ -30,7 +30,10 @@ for i in range(5, 10):
     a.append(i)
 print(a)
 
-#EX-5 mere pass ek list me kuch numbers hai mai chahta hu ki jo even numbers hai unka ek alag list bane aur jo odd number hai uska ek alag list bane
+#EX-5 mai chahta hu ki ek list me jo value hai wo ek new value se update ho jaye
+a=[2,3,4,5,6]
+
+#EX-6 mere pass ek list me kuch numbers hai mai chahta hu ki jo even numbers hai unka ek alag list bane aur jo odd number hai uska ek alag list bane
 a=[1,2,3,4,5,6,7,8,9,10]
 b=[]
 c=[]
@@ -41,3 +44,14 @@ for num in a:
         c.append(num)
 print(f"even number present in the list is: {b}")
 print(f"odd number present in the list is: {c}")
+
+#EX-7 isme user khud bolega ki usko kitna number insert karna hai list me aur ye numbers bhi users apne man se enter karega
+a = []
+num = int(input("Enter how many numbers you want to insert in a list: "))
+
+# Use a loop to get the user inputs and insert them into the list `a`
+for i in range(num):
+    number = int(input(f"Enter number {i + 1}: "))
+    a.append(number)
+# Print the list `b`
+print("The numbers in the list are:", a)
