@@ -42,13 +42,16 @@ for char in a:
 print(f'the length of the string is:{count}')
 
 #EX-3 calculate the number of vowels in a string
-a = "satyendra"
-count = 0
-vowels = ['a', 'e', 'i', 'o', 'u']
-
-for char in a:
+words="satyendra"
+vowels = ['a','e','i','o','u']
+count=0
+for char in words:
     if char in vowels:
-        count += 1
+        count+=1
+
+cons = len(words) - count
+print(f"vowels are present in the word {words} is:{count}")
+print(f"consonent are present in the word {words} is:{cons}")
 
 #EX-4 calculate the words in a sentence
 a="How are you"
