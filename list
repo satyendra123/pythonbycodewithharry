@@ -16,7 +16,7 @@ if num in a:
 else:
     print(f"the {num} is not present in the list")
 
-#EX-3 mere pass ek empty list hai mai isme data append kar rha hu is list me
+#EX-3 mere pass ek empty list hai mai isme data append kar rha hu is list me. jab bhi hum append karte hai to data humesa last index me jakar insert hota hai
 a = []
 a.append(5)
 a.append(6)
