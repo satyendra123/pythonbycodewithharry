@@ -49,3 +49,4 @@ def modify_data():
 print(a)
 modify_data()
 print(a)
+#output: 5 15
