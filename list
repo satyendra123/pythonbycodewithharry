@@ -55,3 +55,40 @@ for i in range(num):
     a.append(number)
 # Print the list `b`
 print("The numbers in the list are:", a)
+
+#EX-10 isme hum for loop ka use krke iterate kraya hai aur list me present sare elements ka sqaure kiya hai. humne ek empty list liya hai aur number ka square krke append karte gaye hai new list me
+
+def sqr(x):
+    return x*x
+
+l = [2,3,4,5,6,7,8]
+a=[]
+for i in l:
+    a.append(sqr(i))
+print(a)
+
+
+#EX-11 isme hum for loop ka use krke iterate kraya hai aur list me present sare elements ka sqaure kiya hai
+
+l = [2,3,4,5,6,7,8]
+a=[]
+for i in l:
+    a.append(i*i)
+    
+print(a)
+
+#EX-12 isme humne ek function bnaya hai jo ek number leta hai parameter ke taur par aur us number ka square karke return karta hai. so map function ka use karne ke liye humare pass ek function hona chahiye
+# aur ye map function do parameter leta hai apne sath me ek to function aur dusra wo list jisme hum apna operation karna chahte hai. map function khud hi iterate hota hai ek ek karke sare elements par list ke. jaise for loop
+
+def sqr(x):
+    return x * x
+
+l = [2, 3, 4, 5, 6, 7, 8]
+a = list(map(sqr, l))
+print(a)
+
+
+#EX-13 isme maine simple lambda function likha hai jo hume ek list dega square karke each element ka
+l = [2, 3, 4, 5, 6, 7, 8]
+a = list(map(lambda x: x * x, l))
+print(a)
