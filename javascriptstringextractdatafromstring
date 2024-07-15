@@ -1,0 +1,114 @@
+# isme hum sikhenge ki agar hume kisi string me se data ko extract karna hai to hum kaise krenge jaise |C|1|4|1|28-0-#u#R97| or |C|1|6| or |F|0E or |S|1E something like this
+
+#Step-1 agar mujhe kisi string me se data ko extract krna hai to hum substring method ka use krenge. substring method jo hai wo do argument leta hai. firstposition means kaha se data ko capture karna hai aur dusra endpos means kaha se pahle tak data ko read krna hai. agar endpos3 hai to 3rd index wale data ko read nahi krega
+let data = "Hello";
+let substring= data.substring(1,3);  // output el
+let substring= data.substring(0,4);  // output Hell
+console.log(substring);
+
+#step-2 agar mujhe pta karna hai ki koi char string me kis position me hai to mai indexOf() method ka use krunga
+
+let data = "Hello";
+let startPos = data.indexOf('H'); // output 0
+let startPos1 = data.indexOf('H',1); // isme ye 1st position se character khojna start krega ki kaha hai so 1st position ke bad H char nahi hai to ye hume -1 return karega
+let startPos2 = data.indexOf('e'); // so output is 1
+let endPos2 = data.indexOf('o'); // so output is 4
+let substr = data.substring(startPos2, endPos2); // 1 se start krega aur 3 tak character ko capture krega means output ell
+console.log(substr);
+
+#step-3 extract the data from the difficult protocol
+String data = "|C|1|4|1|28-0-#u#R96|";
+String data1 = "|S|5E";
+String data2 = "|C|1|6|";
+String data3 = "|F|0E";
+
+void setup() {
+  Serial.begin(9600);
+  delay(2000); // Allow serial monitor to initialize
+
+  Serial.println("Starting extraction...");
+  extractData(data);
+  setid(data1);
+  rowshift(data3);
+  clearscreen(data2);
+  Serial.println("Extraction complete.");
+}
+
+void loop() {
+  // Nothing to do here
+}
+
+void extractData(String data) {
+  // Extracting data without mapping
+  int startPos = data.indexOf('|') + 1;
+  int endPos = data.indexOf('|', startPos);
+  String start_byte = data.substring(startPos, endPos);
+
+  startPos = endPos + 1;
+  endPos = data.indexOf('|', startPos);
+  int ID = data.substring(startPos, endPos).toInt();
+
+  startPos = endPos + 1;
+  endPos = data.indexOf('|', startPos);
+  int data_type_code = data.substring(startPos, endPos).toInt();
+  String data_type = (data_type_code == 4) ? "temporary" : "permanent";
+
+  startPos = endPos + 1;
+  endPos = data.indexOf('|', startPos);
+  int fakedata = data.substring(startPos, endPos).toInt();
+
+  startPos = endPos + 1;
+  endPos = data.indexOf('-', startPos);
+  int x_axis = data.substring(startPos, endPos).toInt();
+
+  startPos = endPos + 1;
+  endPos = data.indexOf('-', startPos);
+  int y_axis = data.substring(startPos, endPos).toInt();
+
+  startPos = endPos + 2; // Skip past '-' and '#'
+  endPos = data.indexOf('#', startPos);
+  String arrow = data.substring(startPos, endPos);
+
+  startPos = endPos + 1;
+  endPos = data.indexOf('|', startPos);
+  String colorWithData = data.substring(startPos, endPos);
+  String actualColor = colorWithData.substring(0, 1);
+  int display_data = colorWithData.substring(1).toInt();
+
+}
+
+void setid(String data) 
+{
+    int startPos = data.indexOf('|', 1) + 1; // Find the position after the second '|' so yaha se mujhe 3 mil jayega
+    int endPos = data.indexOf('E', startPos); // Find the position of 'E' // ye mujhe 4 de dega au mai inke bich ka char find kar lunga
+    String id = data.substring(startPos, endPos); // Extract the substring from position 3 and 4
+    Serial.println("Extracted ID: " + id); // Output the extracted ID
+}
+
+void rowshift(String data) 
+{
+    int startPos = data.indexOf('|', 1) + 1; // Find the position after the second '|' so yaha se mujhe 3 mil jayega
+    int endPos = data.indexOf('E', startPos); // Find the position of 'E' // ye mujhe 4 de dega au mai inke bich ka char find kar lunga
+    String id = data.substring(startPos, endPos); // Extract the substring from position 3 and 4
+    Serial.println("Extracted ID: " + id); // Output the extracted ID
+}
+
+void clearscreen(String data) {
+    int startPos = data.indexOf('|', 1) + 1;
+    int endPos = data.indexOf('|', startPos);
+    String id = data.substring(startPos, endPos);
+    int commandStartPos = data.indexOf('|', endPos) + 1;
+    int commandEndPos = data.indexOf('|', commandStartPos);
+    String command = data.substring(commandStartPos,commandEndPos);
+    Serial.println(id);
+    Serial.println(command);
+}
+
+#step-4 extract the data between |OPENEN%
+let data = "|OPENEN%";
+let startPos=data.indexOf('|')+1;
+let endPos = data.indexOf('%');
+let extracted_data = data.substring(startPos,endPos);
+console.log(extracted_data);
+
+#step-5 
