@@ -109,4 +109,25 @@ b) var array = [-55, -20, 7, -90, -78];
  
     console.log(n);
 
-c) 
+c) note- abhi mai isko static data dekh rha hu ki ye mujhe data de rha hai ya nahi
+let data = [
+{ id: 1, title: 'JavaScript: The Good Parts', author: 'Douglas Crockford' },
+{ id: 2, title: 'Eloquent JavaScript', author: 'Marijn Haverbeke' },
+{ id: 3, title: 'You Don\'t Know JS', author: 'Kyle Simpson' }
+];
+
+var c= data.find(x=> x.id==2)
+console.log(c)
+
+d) phir usi chiz ko yaha maine ek function ke roop me likha hai
+let data = [
+{ id: 1, title: 'JavaScript: The Good Parts', author: 'Douglas Crockford' },
+{ id: 2, title: 'Eloquent JavaScript', author: 'Marijn Haverbeke' },
+{ id: 3, title: 'You Don\'t Know JS', author: 'Kyle Simpson' }
+];
+
+function get_data(x){
+    return x.id ==2
+}
+var c= data.find(get_data)
+console.log(c)
