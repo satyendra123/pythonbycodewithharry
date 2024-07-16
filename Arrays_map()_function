@@ -49,3 +49,64 @@ const y = x.map((item, index) => {
 });
 
 extract(x); // Call the extract function to log each item in array x
+
+
+#EX-10 get the complete array using function
+const data = [1,2,3,4,5]
+function get_book(x)
+{
+    return x
+}
+ const y=get_book(data)
+ console.log(y)
+
+#EX-11 get the data based on the id 
+
+let data = [
+    { id: 1, title: 'JavaScript: The Good Parts', author: 'Douglas Crockford' },
+    { id: 2, title: 'Eloquent JavaScript', author: 'Marijn Haverbeke' },
+    { id: 3, title: 'You Don\'t Know JS', author: 'Kyle Simpson' }
+];
+
+function get_book(id) {
+    return data.find(d => d.id === id);
+}
+console.log(get_book(2));
+console.log(get_book(3));
+console.log(get_book(4));
+
+Note- same chiz ko hum kuch is tarah se bhi kar sakte hai
+let data = [
+{ id: 1, title: 'JavaScript: The Good Parts', author: 'Douglas Crockford' },
+{ id: 2, title: 'Eloquent JavaScript', author: 'Marijn Haverbeke' },
+{ id: 3, title: 'You Don\'t Know JS', author: 'Kyle Simpson' }
+];
+var b = checkdata(2);
+
+function checkdata(idToFind) {
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].id === idToFind) {
+            return data[i];
+        }
+    }
+    return undefined;
+}
+console.log(b); 
+
+# how does find method work find() method=  
+
+a) const ages = [3, 10, 18, 20];
+
+function checkAge(age) {
+  return age > 18;
+}
+
+b) var array = [-55, -20, 7, -90, -78];
+ 
+    var n = array.find(function (element) {
+        return element > 0;
+    });
+ 
+    console.log(n);
+
+c) 
