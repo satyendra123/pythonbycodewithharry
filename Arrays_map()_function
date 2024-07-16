@@ -1,0 +1,51 @@
+#EX-1
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+/* EX-1
+const x = [1, 2, 3, 4, 5];
+const y = x.map(item => {
+  console.log(item);
+  return item; // Map creates a new array, so you need to return the item
+});
+
+console.log(y)
+*/
+
+/* EX-2
+const x = [1, 2, 3, 4, 5];
+
+function extract(data) {
+  return data.map(item => {
+    console.log(item);
+    return item;
+  });
+}
+
+const y = extract(x);
+console.log(y);
+*/
+
+/*
+//EX-3
+const x = [1, 2, 3, 4, 5];
+
+const extract = function(data) {
+  data.map(item => {
+    console.log(item);
+    return item; // This return statement is optional in this case
+  });
+}
+*/
+//EX-4
+const x = [1, 2, 3, 4, 5];
+const y = x.map(item => item);
+console.log(y);
+
+//EX-5
+const x = [1, 2, 3, 4, 5];
+const y = x.map((item, index) => {
+  console.log(`Key: ${index}, Value: ${item}`);
+  return item;
+});
+
+extract(x); // Call the extract function to log each item in array x
