@@ -10,7 +10,21 @@ print(fees)                                                                     
 del(fees['name'])
 print(fees)                                                                             # Prints the dictionary after deleting the 'name' key: {'age': 29, 'roll': 136, 'marks': 107}
 
-  
+
+#note-  accessing keys and values
+a) access values using bracket -                                                                                                                                                                                          print(fees['name'])                             o/p raj
+b) accessing values using dict_name.get() method -                                                                                                                                                                        print(fees.get('name'))                        o/p raj     
+c) agar man lo ki mujhe keys dekhna hai ki fees dictionary me jitne bhi keys hai wo ek list me mujhe mil jaye to mai dict_name.keys() method ka use karunga-                                                              print(fees.keys())        o/p  ['name', 'age', 'roll']    
+d) agar man lo ki mujhe values dekhna hai ki fees dictionary me jitne bhi values hai wo ek list me mujhe mil jaye to mai dict_name.values() method ka use karunga-                                                        print(fees.values())      o/p  ['raj', 29, 136]
+e) agar man lo ki mujhe keys aur values pairs ka set mil jaye ek list me kuch is tarah se [('name','raj'),('age',29),('roll',136)] lists of tuples hume chahiye to mai simply dict_name.items() method ka use karunga-    print(fees.items())   o/p dict_items([('name', 'raj'), ('age', 29), ('roll', 136)])            
+
+fees = {'name': "raj",'age': 29,'roll': 136}
+print(fees['name'])                   - raj
+print(fees.get('age'))                - 29
+print(fees.keys())                    - dict_keys(['name', 'age', 'roll'])
+print(fees.values())                  - dict_values(['raj', 29, 136])
+print(fees.items())                   - dict_items([('name', 'raj'), ('age', 29), ('roll', 136)])
+
 #example-2 man lo mai chahta hu ki user se input lu key ka aur uska value print kara du. agar wo key us dictionary me ho to is chiz ko mai kuch is tarah se krunga
 fees = {
     'name': "raj",
