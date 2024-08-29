@@ -55,8 +55,15 @@ c)
 
 
 
-#note-4 copy the dictionary to one to other
+#note-4 agar mai chahta hu is fees wale dictionary ko pura pura copy kar du keys and values same dusre ek dictionary me jiska naam stu hai to mai fees.copy() method ka use krunga
+fees = {
+    'name': "raj",
+    'age': 29,
+    'roll': 136
+}
 
+stu = fees.copy()
+print(stu)
 #example-2 man lo mai chahta hu ki user se input lu key ka aur uska value print kara du. agar wo key us dictionary me ho to is chiz ko mai kuch is tarah se krunga
 fees = {
     'name': "raj",
@@ -71,13 +78,30 @@ if key in fees:
 else:
     print("This key is not present in the dictionary.")
 
-#EXAMPLE-3 agar mai chahta hu is fees wale dictionary ko pura pura copy kar du keys and values same dusre ek dictionary me jiska naam stu hai to mai fees.copy() method ka use krunga
-fees = {
-    'name': "raj",
-    'age': 29,
-    'roll': 136
-}
 
-stu = fees.copy()
-print(stu)
 
+
+# projects-1 make a list of students in which name, roll, age, marks are there. and iterates to all and prints them
+students = [
+    {"name": "Alice", "age": 20, "roll": 101, "marks": 85},
+    {"name": "Bob", "age": 21, "roll": 102, "marks": 90},
+    {"name": "Charlie", "age": 19, "roll": 103, "marks": 78},
+    {"name": "David", "age": 22, "roll": 104, "marks": 92}
+]
+
+for student in students:
+    print(student['name'])
+    print(student['age'])
+    print(student['roll'])
+    print(student['marks'])
+
+#project-2 if i just want to print all the names from the dictionary
+students = [
+    {"name": "Alice", "age": 20, "roll": 101, "marks": 85},
+    {"name": "Bob", "age": 21, "roll": 102, "marks": 90},
+    {"name": "Charlie", "age": 19, "roll": 103, "marks": 78},
+    {"name": "David", "age": 22, "roll": 104, "marks": 92}
+]
+
+for student in students:
+    print(student['name'])
