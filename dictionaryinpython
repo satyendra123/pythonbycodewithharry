@@ -11,3 +11,36 @@ del(fees['name'])
 print(fees)                                                                             # Prints the dictionary after deleting the 'name' key: {'age': 29, 'roll': 136, 'marks': 107}
 
   
+#example-2 man lo mai chahta hu ki user se input lu key ka aur uska value print kara du. agar wo key us dictionary me ho to is chiz ko mai kuch is tarah se krunga
+fees = {
+    'name': "raj",
+    'age': 29,
+    'roll': 136
+}
+
+key = input("Enter the key to check whether this key is present or not: ")
+
+if key in fees:
+    print(f'This key is present in the dictionary, and its value is {fees[key]}')
+else:
+    print("This key is not present in the dictionary.")
+
+#EXAMPLE-3 agar mai chahta hu is fees wale dictionary ko pura pura copy kar du keys and values same dusre ek dictionary me jiska naam stu hai to mai fees.copy() method ka use krunga
+fees = {
+    'name': "raj",
+    'age': 29,
+    'roll': 136
+}
+
+stu = fees.copy()
+print(stu)
+
+#EXAMPLE-4 man lo mujhe ek dictionary banana hai jisme sabhi keys me bydefault ek hi value dalni hai to mai kya karunga ki sare keys ko ek set me ya ek list me rakh lunga aur fromkeys(key,'default_value') kar dunga
+isse kya hoga ki sare keys me same values jo default wali hai wo hi save ho jayegi
+
+students = ['Alice', 'Bob', 'Charlie']                                              # yaha humne keys ki ek list bana liya hai
+attendance = dict.fromkeys(students, 'absent')                                      # aur yaha humne attendance name se ek dictionary banaya hai dict.fromkeys(key,'default_value') ka use karke
+
+print(attendance)                                                                    # {'Alice': 'absent', 'Bob': 'absent', 'Charlie': 'absent'}
+attendance['Bob']="present"                                    
+print(attendance)                                                                     # after updating the value i will get {'Alice': 'absent', 'Bob': 'present', 'Charlie': 'absent'}
