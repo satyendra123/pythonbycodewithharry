@@ -1,0 +1,13 @@
+#step-1 dictionary ko access karne ke liye hum brackets ke andar key likhkar access karte hai jaise stu['name'] aur agar items ko delete karne ke liye simply del(stu['name']) likhene aur new items add karne ke liye simply stu['marks']=105 likhenge
+  #example-1 
+  
+fees = {'name': "raj",'age': 29,'roll': 136}
+print(fees)                                                                              # Prints the initial dictionary: {'name': 'raj', 'age': 29, 'roll': 136}
+
+fees['marks'] = 107
+print(fees)                                                                             # Prints the dictionary after adding a new key-value pair: {'name': 'raj', 'age': 29, 'roll': 136, 'marks': 107}
+
+del(fees['name'])
+print(fees)                                                                             # Prints the dictionary after deleting the 'name' key: {'age': 29, 'roll': 136, 'marks': 107}
+
+  
