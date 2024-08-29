@@ -11,7 +11,7 @@ del(fees['name'])
 print(fees)                                                                             # Prints the dictionary after deleting the 'name' key: {'age': 29, 'roll': 136, 'marks': 107}
 
 
-#note-  accessing keys and values
+#note 1-  accessing keys and values
 a) access values using bracket -                                                                                                                                                                                          print(fees['name'])                             o/p raj
 b) accessing values using dict_name.get() method -                                                                                                                                                                        print(fees.get('name'))                        o/p raj     
 c) agar man lo ki mujhe keys dekhna hai ki fees dictionary me jitne bhi keys hai wo ek list me mujhe mil jaye to mai dict_name.keys() method ka use karunga-                                                              print(fees.keys())        o/p  ['name', 'age', 'roll']    
@@ -24,6 +24,38 @@ print(fees.get('age'))                - 29
 print(fees.keys())                    - dict_keys(['name', 'age', 'roll'])
 print(fees.values())                  - dict_values(['raj', 29, 136])
 print(fees.items())                   - dict_items([('name', 'raj'), ('age', 29), ('roll', 136)])
+
+#Note-2  update and insert the new keys and values
+fees = {'name': "raj",'age': 29,'roll': 136}
+#update the value using bracket
+fees['name']= "siraj"
+print(fees)                                                                                              o/p {'name': 'siraj', 'age': 29, 'roll': 136}
+
+#update the value using dict_name.update('keys','values') method
+fees.update({'name': 'kajal'})
+print(fees)                                                                                               o/p {'name': 'kajal', 'age': 29, 'roll': 136}
+
+
+#main man lo mujhe ek dictionary banana hai jisme sabhi keys me bydefault ek hi value dalni hai to mai kya karunga ki sare keys ko ek set me ya ek list me rakh lunga aur fromkeys(key,'default_value') kar dunga
+isse kya hoga ki sare keys me same values jo default wali hai wo hi save ho jayegi
+
+students = ['Alice', 'Bob', 'Charlie']                                              # yaha humne keys ki ek list bana liya hai
+attendance = dict.fromkeys(students, 'absent')                                      # aur yaha humne attendance name se ek dictionary banaya hai dict.fromkeys(key,'default_value') ka use karke
+
+print(attendance)                                                                    # {'Alice': 'absent', 'Bob': 'absent', 'Charlie': 'absent'}
+attendance['Bob']="present"                                    
+print(attendance)                                                                     # after updating the value i will get {'Alice': 'absent', 'Bob': 'present', 'Charlie': 'absent'}
+
+
+
+#Note-3  removing the items, keys and values from the dictionary
+a) remove() method
+b) pop() method
+c) 
+
+
+
+#note-4 copy the dictionary to one to other
 
 #example-2 man lo mai chahta hu ki user se input lu key ka aur uska value print kara du. agar wo key us dictionary me ho to is chiz ko mai kuch is tarah se krunga
 fees = {
@@ -49,12 +81,3 @@ fees = {
 stu = fees.copy()
 print(stu)
 
-#EXAMPLE-4 man lo mujhe ek dictionary banana hai jisme sabhi keys me bydefault ek hi value dalni hai to mai kya karunga ki sare keys ko ek set me ya ek list me rakh lunga aur fromkeys(key,'default_value') kar dunga
-isse kya hoga ki sare keys me same values jo default wali hai wo hi save ho jayegi
-
-students = ['Alice', 'Bob', 'Charlie']                                              # yaha humne keys ki ek list bana liya hai
-attendance = dict.fromkeys(students, 'absent')                                      # aur yaha humne attendance name se ek dictionary banaya hai dict.fromkeys(key,'default_value') ka use karke
-
-print(attendance)                                                                    # {'Alice': 'absent', 'Bob': 'absent', 'Charlie': 'absent'}
-attendance['Bob']="present"                                    
-print(attendance)                                                                     # after updating the value i will get {'Alice': 'absent', 'Bob': 'present', 'Charlie': 'absent'}
