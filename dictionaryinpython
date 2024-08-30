@@ -105,3 +105,28 @@ students = [
 
 for student in students:
     print(student['name'])
+
+#project-3 filter out the students whose marks is above 60
+students = [
+                {'name':"jay",'roll no': 20,'marks':40,'city':"bihar"},
+                {'name':"satyendra",'roll no': 30,'marks':50,'city':"satna"},
+                {'name':"shankar",'roll no': 40,'marks':60,'city':"lakhnau"},
+                {'name':"sandeep",'roll no': 50,'marks':70,'city':"ranchi"}
+            ]
+    
+for student in students:
+    if student['marks']>60:
+        print(student)
+
+#project-4 sum of the marks of all the students
+students = [
+                {'name':"jay",'roll no': 20,'marks':40,'city':"bihar"},
+                {'name':"satyendra",'roll no': 30,'marks':50,'city':"satna"},
+                {'name':"shankar",'roll no': 40,'marks':60,'city':"lakhnau"},
+                {'name':"sandeep",'roll no': 50,'marks':70,'city':"ranchi"}
+            ]
+sum=0
+for student in students:
+     sum += student['marks']
+
+print(sum)
