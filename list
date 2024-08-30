@@ -7,6 +7,10 @@ a) accessing the items from the list
       print(a)
       print(a[2])
 
+#note- agar mujhe pta karna hai ki koi bhi items hai wo kaon se index par hai to mai us chiz ko kaise karunga. example ke taur par mujhe pta karna hai ki 5 kaon se index me hai
+      a=[2,3,4,5,6,7]
+      print(a.index(5))        o/p- 3
+      
 b) inserting and appending into the list
     1) list_name.insert(index,value)- ye do chiz apne parameter me leta hai ek to index aur dusra value
     2) list_name.append(value)- ye kewal value leta hai kyuki ki ye list ke end me value ko dalta hai
@@ -53,14 +57,34 @@ EX- a = [1, 2, 3, 4, 5, 6, 7]
     del a
     print(a)                  # output: Error because now the variable a is also deleted and we will access this so it shows me error undefined
 
-d) 
+d) copy() method- man lo ki mere pass ek list hai jisme bhut sare data hai aur mai chahta hu ki ye data jo hai same to same dusre list me bhi chala jaye to hum copy() method ka use karenge
+EX-1 fruits = ['apple', 'banana', 'cherry', 'orange']
+x= []
+for fruit in fruits:
+    x.append(fruit)
+print(x)                                                                  o/p- ['apple', 'banana', 'cherry', 'orange']
+
+#note- same chiz ko hum kuch is tarike se bhi kar sakte hai
+fruits = ['apple', 'banana', 'cherry', 'orange']
+x= fruits.copy()
+print(x)                                                                   o/p- ['apple', 'banana', 'cherry', 'orange']
 
 
+e) count() method- it will give me the count the number of times the value is present in the list 
+fruits = ["apple", "banana", "cherry","apple"]
+x = fruits.count("apple")
+print(x)                                                           o/p- 2  b'coz apple is present two times in the list
 
-
-
-
-
+#note- i can do like this also
+fruits = ["apple", "banana", "cherry","apple"]
+search="apple"
+sum=0
+for i in fruits:
+    if i == search:
+        sum+=1
+    else:
+        pass
+print(sum)                                                           o/p- 2  b'coz apple is present two times in the list
 
 
 
