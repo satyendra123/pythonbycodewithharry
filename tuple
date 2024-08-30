@@ -1,0 +1,19 @@
+# step-1 list and tuples are almost same. the only difference is that the list we can add, update the values but in the tuples we can't add or modify the elements. otherwise both are the same. 
+
+a) accessing the sets item
+a=("sid",5,8,"jay")
+print(a[0])                                     # o/p- sid
+
+a[0]="satyendra"
+print(a)                                        # o/p- TypeError: 'tuple' object does not support item assignment
+
+#using for loop to access the each items in the tuple
+a = ("sid", 5, 8, "jay")
+for i in a:
+    print(i)                                    # o/p- sid,5,8,jay
+
+# in this you were wandering that why we have not written the a[0] for printing because in the i its the value it is not the indexing like 0,1,2,3. we can do this like this also
+a=("sid", 5, 8, "jay")
+for i in range(len(a)):
+     print(a[i])
+
