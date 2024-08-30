@@ -87,6 +87,18 @@ for i in fruits:
 print(sum)                                                           o/p- 2  b'coz apple is present two times in the list
 
 
+f) reverse() method - this reverse method is used to reverse the list
+ex- 
+a=[12,9,4,6,7,1]
+a.reverse()
+print(a)                               o/p- [1,7,6,4,9,12]
+
+#note- isi same chiz ko mai karna chahta hu bina method ka use kiye to mai is chiz ko kaise krunga simply
+a=[12,9,4,6,7,1]
+reverse=[]
+for i in range(len(a)):
+    reverse.append(a.pop())
+print(reverse)
 
 #EX-0  write the numbers in the list
 a=[2,5,7,9]
@@ -115,7 +127,8 @@ a.append(8)
 a.append(9)
 
 print(a)                                             # o/p [5,6,7,8,9]
-#EX-4 iska matlab ki man lo ki maine ek empty list banaya hai aur mai chahta hu ki isme mai number append karu for loop ka use karke to is tarah se karunga. [5,6,7,8,9]
+#EX
+-4 iska matlab ki man lo ki maine ek empty list banaya hai aur mai chahta hu ki isme mai number append karu for loop ka use karke to is tarah se karunga. [5,6,7,8,9]
 a = []
 for i in range(5, 10):                                        
     a.append(i)
