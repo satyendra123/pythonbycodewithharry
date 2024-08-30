@@ -1,0 +1,11 @@
+#step-1 list method in javascript
+  a=[2,3,4,7,9,5]
+b=[3,2,8]
+for( let i of b)
+{
+    if(!a.includes(i))
+    {
+    a.push(i)
+    }
+}
+console.log(a)
