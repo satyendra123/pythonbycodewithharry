@@ -49,11 +49,34 @@ print(attendance)                                                               
 
 
 #Note-3  removing the items, keys and values from the dictionary
-a) remove() method
-b) pop() method
-c) 
+a) dict_name.pop('key') method      ex. vehicle.pop('model') ye na value deta hai hume jo sa keys hum dete hai uski value deta hai. aur ye keys values ye dictionary me se nikal kar deta hai means agar hum ab print kare vehicle ko to hume usme ab nahi dikhega ye keys aur values
+b) dict_name.popitem() method       ex. vehicle.popitems() isme hum key pass nahi karte hai parameter me kyuki ye hume humesa last items hi nikal kar deta hai dictionary me se. ye hume list of tuples ke roop me keys values deta hai ex vehicle.popitems()    o/p [('model','q7')]
+c) del dict_name['key'] = ye method jo hai pure ke pure dictionary ko delete kar deta hai. aur agar hum dictionary me se kisi keys aur uske items ko delete karna chahe to bhi ye delete kar deta hai  ex. del vehicle['model']
+d) dict_name.clear() = ye method jo hai dictionary ko empty kar deta hai.     ex. vehicle.clear()
 
+#project-1  removing and the deleting the items from the dictionary using del keyword
+vehicle = {'name': "satyendra",'roll no': 30,'marks': 50,'city': "satna'}
+#removing a specific keys and values from the dictionary
+del vehicle['marks']
+print(vehicle)
+#deleting the complete dictionary
+del vehicle
+print(vehicle)
 
+#note-2 agar mai clear() method ka use karunga to sare items remove ho jayenge dictionary me lekin ye dictionary variable rhega isme se bas items remove honge
+vehicle = {'name': "satyendra",'roll no': 30,'marks': 50,'city': "satna'}
+#removing all the items from the dictionary
+vehicle.clear()
+print(vehicle)
+
+#note-3 lekin agar mujhe keys aur values ko nikalna hai dictionary me se to mai vehicle.pop('key') ka use karke kisi specific keys ki values dekh sakta hu. aur agar mai vehicle.popitems() method ka use krunga to isme mujhe parameter me keys dene ki jarurat nahi padhti hai kyuki ye hume last items nikal kar deta hai
+vehicle = {'name': "satyendra",'roll no': 30,'marks': 50,'city': "satna"}
+print(vehicle.pop('name'))           o/p  satyendra
+print(vehicle)                   o/p  {'roll no': 30, 'marks': 50, 'city': 'satna'}                                
+print(vehicle.popitem())              o/p  ('city', 'satna')
+print(vehicle)                   o/p   {'name': "satyendra",'roll no': 30,'marks': 50 }
+
+#note-4
 
 #note-4 agar mai chahta hu is fees wale dictionary ko pura pura copy kar du keys and values same dusre ek dictionary me jiska naam stu hai to mai fees.copy() method ka use krunga
 fees = {
