@@ -153,3 +153,59 @@ for student in students:
      sum += student['marks']
 
 print(sum)
+
+#project-5 man lo maine ek empty dictionary banaya hai usme humne dictionary me keys aur values dala hai
+student={}
+student['name']="satyendra"
+student['age']=32
+student['roll']=20
+student['marks']=76
+student['city']="bhopal"
+print(student)
+
+#note- by using this approach only resolve one interview question which is suppose i have two lists and i need to make a dictionary with it. means one list will work as keys and other will be used as the values
+question -  lets suppose i have two lists one is names and the other lists is the height and i need to make a dictionary based on that
+
+#EX- 
+names=["sid", "jay", "satyendra"]
+heights = [135, 156, 120]
+
+student={}
+
+for i in range(len(names)):
+    student[names[i]] = heights[0]
+    
+print(student)                           o/p- {'sid': 135, 'jay': 135, 'satyendra': 135}
+
+#note by simply using the zip function we can do this easily
+names=["sid", "jay", "satyendra"]
+heights = [135, 156, 120]
+
+student= dict(zip(names,heights))
+print(student)                          o/p- {'sid': 135, 'jay': 135, 'satyendra': 135}
+
+#project-5 i have names and heights the two list and i need to tell who is the tallest and who is smallest and who is in the middle
+names = ["sid", "jay", "satyendra"]
+heights = [135, 156, 120]
+student = dict(zip(names, heights))
+print(student)
+# o/p Student dictionary: {'sid': 135, 'jay': 156, 'satyendra': 120}
+
+#sort the height in ascending order
+sorted_heights = sorted(heights)
+
+#like now i want to take the height from the heights list one by one and find the name associated with that height
+
+sorted_names = []
+
+for height in sorted_heights:
+    for name in names:
+        if student[name] == height:
+            sorted_names.append(name)
+            break
+
+print(f"Sorted heights: {sorted_heights}")
+
+print(f"Tallest: {sorted_names[-1]} with height {sorted_heights[-1]}")
+print(f"Middle: {sorted_names[1]} with height {sorted_heights[1]}")
+print(f"Shortest: {sorted_names[0]} with height {sorted_heights[0]}")
