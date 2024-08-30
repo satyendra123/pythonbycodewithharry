@@ -1,3 +1,62 @@
+lists- lists is like a array. but in array is a homoginious datatypes but the lists are the heterogenious data types. means it stores int, string, float every data types so that is why it is a list
+
+#note- lists, sets, tuples, dictionary se relates jitne bhi method hote hai uska use hum datatype_name.method() likhkar aise hi use krte hai dot method se
+
+a) accessing the items from the list
+      a=[2,3,4,5,6,7]
+      print(a)
+      print(a[2])
+
+b) inserting and appending into the list
+    1) list_name.insert(index,value)- ye do chiz apne parameter me leta hai ek to index aur dusra value
+    2) list_name.append(value)- ye kewal value leta hai kyuki ki ye list ke end me value ko dalta hai
+    3) list_name.extend(list_b)- ye extend() method kya karta hai ki man lo mere pass list hai data ka aur mai is list ko dusre wale list ke end me add karna chahta hu to mai is method ka use krunga
+
+ex- a=[1,2,3,4,5,6,7]
+    a.insert(2,2)
+    print(a)                              o/p- [1, 2, 2, 3, 4, 5, 6, 7]
+#note- means list ke andar hum same data ko bhi kitni bhi baal dal sakte hai lekin jab hum set padhenge to ye chiz usme error dikhayega
+     a.append(12)
+     print(a)                             o/p- [1, 2, 9, 3, 4, 5, 6, 7, 12]
+
+#note - extend() method kya karta hai ki man lo mere pass list hai data ka aur mai is list ko dusre wale list ke end me add karna chahta hu to mai is method ka use krunga
+a=[7,2,5,4,3,6,1]
+b=[12,13,14]
+a.extend(b)
+print(a)                   o/p-  [7,2,5,4,3,6,1,12,13,14]
+
+c) removing and deleting the list and list items
+   1) list_name.pop(index) - agar mai index dunga to us index se pop kar dega item ko aur agr parameter me index nahi dunga to ye last item ko pop krega
+   2) list_name.remove(value)   - ye parameter me value leta hai means ye us value ko nikal deta hai list me se. aur agar koi element ek se jyadabar ho to jo sabse pahla occurrence rhta hai usko remove karta hai
+   3) list_name.clear() - ye list ke items ko clear kar dega lekin jo variable banaye the list ka wo abhi bhi exists krega
+   4) del - it is a keywork not the method so we directly use it like this ex del a[2]   or del a - isse pura ka pura list hi delete ho jayega
+
+#note- popitem() - this method is only present in the dictionary not in the list sets and tuples. because in the dictionary it fetches the last key and values and return the list of sets [('key','value')]
+
+EX- a = [1, 2, 3, 4, 5, 6, 7]
+    print(a.pop())            # Output: 7
+    print(a)                  # Output: [1, 2, 3, 4, 5, 6]
+
+    a.remove(4)                
+    print(a)                  # output : [1, 2, 3, 5, 6]
+    a.clear()
+    print(a)                  # output: []
+    del a[2]
+    print(a)                  # output: [1, 2,5, 6]
+    del a
+    print(a)                  # output: Error because now the variable a is also deleted and we will access this so it shows me error undefined
+
+d) 
+
+
+
+
+
+
+
+
+
+
 #EX-0  write the numbers in the list
 a=[2,5,7,9]
 print(a)
@@ -24,15 +83,17 @@ a.append(7)
 a.append(8)
 a.append(9)
 
+print(a)                                             # o/p [5,6,7,8,9]
 #EX-4 iska matlab ki man lo ki maine ek empty list banaya hai aur mai chahta hu ki isme mai number append karu for loop ka use karke to is tarah se karunga. [5,6,7,8,9]
 a = []
-for i in range(5, 10):
+for i in range(5, 10):                                        
     a.append(i)
-print(a)
+print(a)                                                   o/p- [6,7,8,9,10]
 
 #EX-5 mai chahta hu ki ek list me jo value hai wo ek new value se update ho jaye
 a=[2,3,4,5,6]
-
+a[2]=10
+print(a)           o/p- [2,3,10,5,6]
 #EX-6 mere pass ek list me kuch numbers hai mai chahta hu ki jo even numbers hai unka ek alag list bane aur jo odd number hai uska ek alag list bane
 a=[1,2,3,4,5,6,7,8,9,10]
 b=[]
