@@ -188,8 +188,7 @@ print(student)                          o/p- {'sid': 135, 'jay': 135, 'satyendra
 names = ["sid", "jay", "satyendra"]
 heights = [135, 156, 120]
 student = dict(zip(names, heights))
-print(student)
-# o/p Student dictionary: {'sid': 135, 'jay': 156, 'satyendra': 120}
+print(student)                                                      # o/p Student dictionary: {'sid': 135, 'jay': 156, 'satyendra': 120}
 
 #sort the height in ascending order
 sorted_heights = sorted(heights)
@@ -204,8 +203,18 @@ for height in sorted_heights:
             sorted_names.append(name)
             break
 
-print(f"Sorted heights: {sorted_heights}")
-
-print(f"Tallest: {sorted_names[-1]} with height {sorted_heights[-1]}")
-print(f"Middle: {sorted_names[1]} with height {sorted_heights[1]}")
 print(f"Shortest: {sorted_names[0]} with height {sorted_heights[0]}")
+print(f"Middle: {sorted_names[1]} with height {sorted_heights[1]}")
+print(f"heighest: {sorted_names[2]} with height {sorted_heighest[2]}")
+
+#project-6 i have a list of tuples like this [('name', 'sid'), ('age', 19), ('roll', 210), ('marks', 230), ('city', 'bihar')] i want to convert it to dictionary
+EX- data = [('name', 'sid'), ('age', 19), ('roll', 210), ('marks', 230), ('city', 'bihar')]
+    student=dict(data)
+    print(student)                                                   o/p {'name': 'sid', 'age': 19, 'roll': 210, 'marks': 230, 'city': 'bihar'}
+
+#other example
+data = [('name', 'sid'), ('age', 19), ('roll', 210), ('marks', 230), ('city', 'bihar')]
+student={}
+for i in data:
+    student[i[0]] = i[1]
+print(student)                                                         o/p {'name': 'sid', 'age': 19, 'roll': 210, 'marks': 230, 'city': 'bihar'}
