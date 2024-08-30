@@ -197,3 +197,16 @@ print(a)
 l = [2, 3, 4, 5, 6, 7, 8]
 a = list(map(lambda x: x * x, l))
 print(a)
+
+#EX-14 man lo humare pass do list hai a aur b. a=[4,5,6,7,2,1,9]   and b=[6,7,8] mai chahta hu ki b se value lekr a me dalde agar wo value a me pahle se nahi hai to. aur agar value pahle se hai to to append na ho
+a=[4,5,6,7,2,1,9]
+b=[6,7,8]
+
+for i in b:
+    if i not in a:
+        a.append(i)
+    else:
+        pass
+    
+print(a)
+        
