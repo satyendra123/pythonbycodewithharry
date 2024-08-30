@@ -25,6 +25,13 @@ b=[12,13,14]
 a.extend(b)
 print(a)                   o/p-  [7,2,5,4,3,6,1,12,13,14]
 
+#note- agar mai extend() method ka use nahi karna chahta hu to is chiz ko mai kuch is tarah se bhi kar sakta hu
+a=[7,2,5,4,3,6,1]
+b=[12,13,14]
+for i in b:
+    a.append(i)
+print(a)                   o/p-  [7,2,5,4,3,6,1,12,13,14]
+
 c) removing and deleting the list and list items
    1) list_name.pop(index) - agar mai index dunga to us index se pop kar dega item ko aur agr parameter me index nahi dunga to ye last item ko pop krega
    2) list_name.remove(value)   - ye parameter me value leta hai means ye us value ko nikal deta hai list me se. aur agar koi element ek se jyadabar ho to jo sabse pahla occurrence rhta hai usko remove karta hai
